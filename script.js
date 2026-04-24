@@ -1,5 +1,8 @@
 'use strict';
 
+/* ═══════════════════════════════════════════════════════════
+   1. DONNÉES DES PLATS
+═══════════════════════════════════════════════════════════ */
 const plats = [
   {
     nom:    "Ablo + poisson",
@@ -94,6 +97,9 @@ const plats = [
 ];
 
 
+/* ═══════════════════════════════════════════════════════════
+   2. PANIER
+═══════════════════════════════════════════════════════════ */
 let panier = {};
 
 function getPanier() {
@@ -196,6 +202,9 @@ function mettreAJourLienWhatsApp() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   3. MODALS
+═══════════════════════════════════════════════════════════ */
 function ouvrirModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -254,6 +263,9 @@ function initialiserModals() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   4. GÉNÉRATION GRILLE MENU
+═══════════════════════════════════════════════════════════ */
 function formatPrix(prix) {
   return prix.toLocaleString('fr-FR');
 }
@@ -322,6 +334,9 @@ function initialiserGrille() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   5. FILTRES MENU
+═══════════════════════════════════════════════════════════ */
 let filtreActif = 'tous';
 let rechercheActive = '';
 
@@ -366,6 +381,9 @@ function initialiserFiltres() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   6. RECHERCHE
+═══════════════════════════════════════════════════════════ */
 function initialiserRecherche() {
   const input = document.getElementById('searchInput');
   const clear = document.getElementById('searchClear');
@@ -389,6 +407,9 @@ function initialiserRecherche() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   7. NAVBAR AU SCROLL
+═══════════════════════════════════════════════════════════ */
 function initialiserNavbarScroll() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
@@ -399,6 +420,9 @@ function initialiserNavbarScroll() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   8. BURGER MENU MOBILE
+═══════════════════════════════════════════════════════════ */
 function initialiserBurger() {
   const toggle   = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -421,6 +445,9 @@ function initialiserBurger() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   9. SMOOTH SCROLL
+═══════════════════════════════════════════════════════════ */
 function initialiserSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(lien => {
     lien.addEventListener('click', e => {
@@ -434,6 +461,9 @@ function initialiserSmoothScroll() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   10. INTERSECTION OBSERVER — révélation au scroll
+═══════════════════════════════════════════════════════════ */
 function initialiserReveal() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
@@ -455,6 +485,9 @@ function initialiserReveal() {
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
   initialiserGrille();
   initialiserFiltres();

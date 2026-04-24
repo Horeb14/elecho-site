@@ -6,17 +6,7 @@
   <title>Élécho – Cuisine du Sud Bénin · Comé</title>
   <meta name="description" content="Élécho célèbre l'authenticité de la cuisine du Sud Bénin dans un cadre raffiné à Comé. Ouvert tous les jours 11h–22h." />
 
-  
-  <meta name="theme-color" content="#0a0805" />
-
-  
-  <meta property="og:title" content="Élécho – Cuisine du Sud Bénin · Comé" />
-  <meta property="og:description" content="Cuisine authentique du Sud Bénin à Comé. Ouvert 7j/7, 11h–22h." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=1200&auto=format&fit=crop" />
-  <meta property="og:type" content="restaurant" />
-  <meta property="og:locale" content="fr_FR" />
-
-  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -25,7 +15,9 @@
 </head>
 <body>
 
- 
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Navigation principale">
     <a href="#accueil" class="nav-logo">Élécho</a>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
@@ -40,7 +32,9 @@
     </ul>
   </nav>
 
-  
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
   <section id="accueil" class="hero" role="banner">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
@@ -73,14 +67,40 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════
+       MENU
+  ═══════════════════════════════════════════ -->
   <section id="menu" class="section section-menu" aria-labelledby="menu-heading">
     <div class="section-separator" aria-hidden="true">
       <div class="sep-line"></div>
       <span class="sep-diamond">✦</span>
       <div class="sep-line"></div>
     </div>
-    <p class="section-label">Nos Spécialités</p>
+    <p class="section-label" id="menu-heading">Nos Spécialités</p>
 
+    <!-- ── Barre de recherche ── -->
+    <div class="menu-search" role="search" aria-label="Rechercher un plat">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        type="search"
+        id="searchInput"
+        class="search-input"
+        placeholder="Rechercher un plat..."
+        autocomplete="off"
+        aria-label="Rechercher un plat"
+      />
+      <button class="search-clear" id="searchClear" aria-label="Effacer la recherche" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ── Filtres ── -->
     <div class="menu-filters" role="tablist" aria-label="Filtrer les plats">
       <button class="filter-btn active" data-filter="tous" role="tab" aria-selected="true">Tous</button>
       <button class="filter-btn" data-filter="entrées" role="tab" aria-selected="false">Entrées</button>
@@ -89,10 +109,56 @@
       <button class="filter-btn" data-filter="desserts" role="tab" aria-selected="false">Desserts</button>
     </div>
 
-    <div class="menu-grid" id="grille-plats" role="list" aria-live="polite" aria-label="Liste des plats"></div>
+    <!-- ── Grille générée par JS ── -->
+    <div class="menu-grid" id="grille-plats" role="list" aria-live="polite" aria-label="Liste des plats">
+      <!-- Injecté par script.js -->
+    </div>
+
+    <!-- Message aucun résultat -->
+    <p class="menu-no-result" id="menuNoResult" hidden aria-live="polite">
+      Aucun plat ne correspond à votre recherche.
+    </p>
   </section>
 
-  
+  <!-- ═══════════════════════════════════════════
+       GALERIE — NOTRE UNIVERS
+  ═══════════════════════════════════════════ -->
+  <section id="univers" class="section section-univers" aria-labelledby="univers-heading">
+    <div class="section-separator" aria-hidden="true">
+      <div class="sep-line"></div>
+      <span class="sep-diamond">✦</span>
+      <div class="sep-line"></div>
+    </div>
+    <p class="section-label">Notre Univers</p>
+
+    <h2 id="univers-heading" class="univers-title">Notre univers</h2>
+    <p class="univers-subtitle">Découvrez l'ambiance et les saveurs d'Élécho</p>
+
+    <div class="galerie-grid" aria-label="Galerie photos du restaurant">
+      <div class="galerie-item galerie-large reveal">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900" alt="Salle du restaurant Élécho, ambiance chaleureuse" loading="lazy" />
+      </div>
+      <div class="galerie-item reveal">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600" alt="Spécialités béninoises servies à Élécho" loading="lazy" />
+      </div>
+      <div class="galerie-item reveal">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600" alt="Présentation gastronomique d'un plat africain" loading="lazy" />
+      </div>
+      <div class="galerie-item reveal">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600" alt="Intérieur chaleureux du restaurant" loading="lazy" />
+      </div>
+      <div class="galerie-item reveal">
+        <img src="https://images.unsplash.com/photo-1555243896-c709bfa0b564?auto=format&fit=crop&w=600" alt="Chef en cuisine préparant un plat traditionnel" loading="lazy" />
+      </div>
+      <div class="galerie-item reveal">
+        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600" alt="Plat élaboré avec soin" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       À PROPOS
+  ═══════════════════════════════════════════ -->
   <section id="apropos" class="section section-apropos" aria-labelledby="apropos-heading">
     <div class="section-separator" aria-hidden="true">
       <div class="sep-line"></div>
@@ -104,17 +170,20 @@
     <div class="apropos-inner">
       <div class="apropos-text">
         <h2 id="apropos-heading" class="apropos-title">Une expérience culinaire authentique</h2>
+
         <p class="apropos-body">
           Élécho célèbre l'authenticité de la cuisine du Sud Bénin dans un cadre raffiné à Comé.
           Nos recettes puisent dans le patrimoine culinaire des régions Mono et Couffo, où chaque
           plat témoigne d'une tradition séculaire transmise de mère en fille.
         </p>
+
         <p class="apropos-body">
           Du maïs fermenté de l'amiwo à l'huile de palme rouge de nos sauces, chaque ingrédient
           est sélectionné avec soin auprès de producteurs locaux. Nous honorons les méthodes
           ancestrales tout en sublimant la présentation pour une expérience gastronomique
           contemporaine.
         </p>
+
         <blockquote class="apropos-quote">
           "Notre cuisine raconte l'histoire du Sud Bénin, une bouchée à la fois."
         </blockquote>
@@ -122,7 +191,7 @@
 
       <div class="apropos-image-wrap">
         <img
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800"
           alt="Table dressée avec soin dans le restaurant Élécho"
           class="apropos-image"
           loading="lazy"
@@ -133,7 +202,82 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════
+       AVIS CLIENTS
+  ═══════════════════════════════════════════ -->
+  <section id="avis" class="section section-avis" aria-labelledby="avis-heading">
+    <div class="section-separator" aria-hidden="true">
+      <div class="sep-line"></div>
+      <span class="sep-diamond">✦</span>
+      <div class="sep-line"></div>
+    </div>
+    <p class="section-label">Témoignages</p>
 
+    <h2 id="avis-heading" class="avis-title">Ce qu'ils disent de nous</h2>
+    <p class="avis-subtitle">L'avis de nos clients</p>
+
+    <div class="avis-grid">
+
+      <article class="avis-card reveal" aria-label="Avis de Amara K.">
+        <div class="avis-header">
+          <span class="avis-nom">Amara K.</span>
+          <span class="avis-etoiles" aria-label="5 étoiles sur 5"><span aria-hidden="true">★★★★★</span></span>
+        </div>
+        <blockquote class="avis-texte">"Une vraie découverte&nbsp;! La pâte sauce graine est exactement comme celle de ma grand-mère."</blockquote>
+        <p class="avis-date">Il y a 2 semaines</p>
+      </article>
+
+      <article class="avis-card reveal" aria-label="Avis de Jean-Baptiste M.">
+        <div class="avis-header">
+          <span class="avis-nom">Jean-Baptiste M.</span>
+          <span class="avis-etoiles" aria-label="5 étoiles sur 5"><span aria-hidden="true">★★★★★</span></span>
+        </div>
+        <blockquote class="avis-texte">"L'amiwo est délicieux et l'ambiance est chaleureuse. Une adresse incontournable à Comé."</blockquote>
+        <p class="avis-date">Il y a 1 mois</p>
+      </article>
+
+      <article class="avis-card reveal" aria-label="Avis de Fatimatou S.">
+        <div class="avis-header">
+          <span class="avis-nom">Fatimatou S.</span>
+          <span class="avis-etoiles" aria-label="5 étoiles sur 5"><span aria-hidden="true">★★★★★</span></span>
+        </div>
+        <blockquote class="avis-texte">"Excellent rapport qualité-prix. Les portions sont généreuses et les saveurs sont authentiques."</blockquote>
+        <p class="avis-date">Il y a 3 semaines</p>
+      </article>
+
+      <article class="avis-card reveal" aria-label="Avis de Didier L.">
+        <div class="avis-header">
+          <span class="avis-nom">Didier L.</span>
+          <span class="avis-etoiles" aria-label="4 étoiles sur 5"><span aria-hidden="true">★★★★☆</span></span>
+        </div>
+        <blockquote class="avis-texte">"Très bonne cuisine du Sud Bénin. Je recommande vivement le gboman."</blockquote>
+        <p class="avis-date">Il y a 1 semaine</p>
+      </article>
+
+      <article class="avis-card reveal" aria-label="Avis de Christelle A.">
+        <div class="avis-header">
+          <span class="avis-nom">Christelle A.</span>
+          <span class="avis-etoiles" aria-label="5 étoiles sur 5"><span aria-hidden="true">★★★★★</span></span>
+        </div>
+        <blockquote class="avis-texte">"La meilleure cuisine béninoise que j'ai goûtée&nbsp;! Les ingrédients sont frais et locaux. L'équipe est au petit soin."</blockquote>
+        <p class="avis-date">Il y a 2 mois</p>
+      </article>
+
+      <article class="avis-card reveal" aria-label="Avis de Mohamed T.">
+        <div class="avis-header">
+          <span class="avis-nom">Mohamed T.</span>
+          <span class="avis-etoiles" aria-label="5 étoiles sur 5"><span aria-hidden="true">★★★★★</span></span>
+        </div>
+        <blockquote class="avis-texte">"Un voyage culinaire au cœur du Sud Bénin. Chaque plat raconte une histoire. Merci pour cette belle expérience&nbsp;!"</blockquote>
+        <p class="avis-date">Il y a 3 jours</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
   <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
     <div class="section-separator" aria-hidden="true">
       <div class="sep-line"></div>
@@ -154,11 +298,7 @@
           </svg>
         </div>
         <h3 class="contact-col-title">Adresse</h3>
-        <address class="contact-info">
-          Maison des Jeunes<br />
-          Comé, Mono<br />
-          Bénin
-        </address>
+        <address class="contact-info">Maison des Jeunes<br />Comé, Mono<br />Bénin</address>
       </div>
 
       <div class="contact-col">
@@ -169,11 +309,7 @@
           </svg>
         </div>
         <h3 class="contact-col-title">Horaires</h3>
-        <p class="contact-info">
-          Lundi – Dimanche<br />
-          11h00 – 22h00<br />
-          <span class="contact-highlight">Service continu</span>
-        </p>
+        <p class="contact-info">Lundi – Dimanche<br />11h00 – 22h00<br /><span class="contact-highlight">Service continu</span></p>
       </div>
 
       <div class="contact-col">
@@ -191,6 +327,21 @@
       </div>
     </div>
 
+    <!-- ── Google Maps ── -->
+    <div class="contact-map" aria-label="Localisation d'Élécho sur Google Maps">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31556.44!2d1.8678!3d6.3950!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023f52b6ff7e3f3%3A0x73aa14fc4b9eb7e8!2sCom%C3%A9%2C+B%C3%A9nin!5e0!3m2!1sfr!2sfr!4v1714000000000!5m2!1sfr!2sfr"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localisation d'Élécho à Comé, Bénin"
+      ></iframe>
+    </div>
+
+    <!-- ── CTA WhatsApp ── -->
     <div class="contact-cta">
       <h3 class="cta-title">Passez votre commande dès maintenant</h3>
       <p class="cta-sub">Contactez-nous directement sur WhatsApp pour vos commandes</p>
@@ -209,11 +360,132 @@
     </div>
   </section>
 
-  
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
     <a href="#accueil" class="footer-logo">Élécho</a>
-    <p class="footer-copy">© 2026 Élécho. &nbsp;·&nbsp; <span style="opacity:0.4;">By Horeb</span></p>
+    <div class="footer-socials" aria-label="Réseaux sociaux">
+      <a href="#" class="footer-social-link" aria-label="Élécho sur Instagram" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#" class="footer-social-link" aria-label="Élécho sur Facebook" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-copy">© 2026 Élécho. By Horeb.</p>
   </footer>
+
+  <!-- ═══════════════════════════════════════════
+       MODAL DÉTAIL PLAT
+  ═══════════════════════════════════════════ -->
+  <div
+    id="modal-plat"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-plat-nom"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div class="modal-plat-inner" role="document">
+      <button class="modal-close" id="modal-plat-close" aria-label="Fermer le détail du plat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="modal-plat-img-wrap">
+        <img id="modal-plat-img" src="" alt="" class="modal-plat-img" />
+      </div>
+      <div class="modal-plat-body">
+        <div class="modal-plat-header">
+          <h2 id="modal-plat-nom" class="modal-plat-nom"></h2>
+          <span id="modal-plat-prix" class="modal-plat-prix"></span>
+        </div>
+        <p id="modal-plat-origine" class="modal-plat-origine"></p>
+        <p id="modal-plat-desc" class="modal-plat-desc"></p>
+        <div class="modal-ingredients">
+          <p class="modal-ingredients-label">Ingrédients</p>
+          <div id="modal-ingredients-list" class="modal-ingredients-list"></div>
+        </div>
+        <button id="btn-ajouter-panier" class="btn btn-gold btn-large btn-full">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;flex-shrink:0;">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MODAL PANIER
+  ═══════════════════════════════════════════ -->
+  <div
+    id="modal-panier"
+    class="modal-overlay modal-panier-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="panier-titre"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div class="modal-panier-inner" role="document">
+      <div class="modal-panier-header">
+        <h2 id="panier-titre" class="modal-panier-titre">Votre panier</h2>
+        <button class="modal-close" id="modal-panier-close" aria-label="Fermer le panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div id="panier-liste" class="panier-liste" aria-live="polite" aria-label="Articles dans le panier"></div>
+      <p id="panier-vide" class="panier-vide" hidden>Votre panier est vide.</p>
+      <div class="panier-footer" id="panier-footer">
+        <div class="panier-total-row">
+          <span class="panier-total-label">Total</span>
+          <span id="panier-total" class="panier-total-val">0 FCFA</span>
+        </div>
+        <a
+          id="btn-commander-whatsapp"
+          href="#"
+          class="btn btn-gold btn-large btn-full"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Commander sur WhatsApp"
+        >
+          <svg class="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Commander sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       BOUTON PANIER FLOTTANT
+  ═══════════════════════════════════════════ -->
+  <button
+    id="btn-panier"
+    class="btn-panier-float"
+    aria-label="Ouvrir le panier"
+    aria-haspopup="dialog"
+    hidden
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+    <span id="panier-count" class="panier-count" aria-label="Nombre d'articles">0</span>
+  </button>
 
   <script src="script.js"></script>
 </body>
